@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>welcome</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="/" class="headerLink">
+        <div>Home</div>
+      </a>
+      <a
+        href="https://vikrantrajput1408.github.io/VikrantRajput/"
+        target="_blank"
+        class="headerLink"
+      >
+        <div>Portfolio</div>
+      </a>
+    </div>
+    
+    <h1>Forest Fire Detector</h1>
+    <form style="display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 40px;" 
+                method="post" 
+                enctype="multipart/form-data" 
+                action="/predictforest" >
+  
+      {% csrf_token %}
+      <div>
+        <label style="text-align: center;
+        margin-top: 100px;
+        font-size: 80px;
+        font-family: 'italic';
+        font-weight: 400;"
+        for="fname" 
+        >Upload Image</label> 
+
+      </div>
+      <br>
+      <br> 
+      <input class="input-file" name="filePath" type="file">
+      <br>
+      <br>
+      <br>
+     
+      
+      <input type="submit" value="Submit" class="button-2"></div>
+     
+      <h2>The classification of the image is {{predictedLabel}}</h2>
+      
+      <img src={{filePathName}} alt='imagename'>
+      {{filePathName}}
+     
+     </form>
+
+  </body>
+</html>

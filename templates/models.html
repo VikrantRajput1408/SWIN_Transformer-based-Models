@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>welcome</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="/" class="headerLink">
+        <div>Home</div>
+      </a>
+      <a
+        href="https://vikrantrajput1408.github.io/VikrantRajput/"
+        target="_blank"
+        class="headerLink"
+      >
+        <div>Portfolio</div>
+      </a>
+    </div>
+    
+
+    <form style="display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 40px;" 
+                method="post" 
+                enctype="multipart/form-data" 
+                action="/predictImage" >
+  
+      {% csrf_token %}
+      <div>
+        <label style="text-align: center;
+        margin-top: 100px;
+        font-size: 80px;
+        font-family: 'italic';
+        font-weight: 400;"
+        for="fname" 
+        >Upload Image</label> 
+
+      </div>
+      <br>
+      <br> 
+      <input class="input-file" name="filePath" type="file">
+      <br>
+      <br>
+      <br>
+     
+      
+      <input type="submit" value="Submit" class="button-2"></div>
+     
+      <h2>The classification of the image is {{predictedLabel}}</h2>
+      
+      <img src={{filePathName}} alt='imagename'>
+      {{filePathName}}
+     
+     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% comment %} <p>
+      <input
+        type="file"
+        accept="image/*"
+        name="image"
+        id="file"
+        onchange="loadFile(event)"
+        style="display: none"
+      />
+    </p>
+    <p>
+      <label
+        for="file"
+        style="
+          cursor: pointer;
+          font-size: 20px;
+          border: 2px solid #ccc;
+          padding: 80px 120px;
+          color: gray;
+        "
+        >Upload Image</label
+      >
+    </p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <p><img id="output" width="200" /></p>
+
+    <div class="inputSubmit">
+      <input type="text" />
+      <input type="submit" />
+    </div> {% endcomment %}
+
+    <script>
+      var loadFile = function (event) {
+        var image = document.getElementById("output");
+        image.src = URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+  </body>
+</html>
